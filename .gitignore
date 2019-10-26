@@ -3,3 +3,6 @@
 
 # Editor
 /.idea
+
+# ENV Files
+.env
