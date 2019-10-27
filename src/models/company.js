@@ -13,16 +13,19 @@ const company = (sequelize) => {
         },
         name: {
             type: Sequelize.STRING,
-        },
-        owner_id: {
-            type: Sequelize.BIGINT,
         }
     }, {
         createdAt: 'created_at',
         updatedAt: 'modified_at',
         version: 'version',
         tableName: 'company',
+        underscored: true,
     });
+
+    Company.associate = models => {
+        Company.belongsTo(models.Owner);
+    };
+
     return Company;
 };
 

@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const companies = await req.context.models.Company.findAll();
+    const companies = await req.context.models.Company.findAll({include: [{model: req.context.models.Owner}]});
     return res.status(200).json(companies);
 });
 

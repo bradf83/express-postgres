@@ -22,6 +22,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/companies', routes.company);
+app.use('/owners', routes.owner);
 
 // Sequelize and then start server
 sequelize.sync().then(async () => {
