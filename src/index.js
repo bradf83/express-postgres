@@ -1,22 +1,20 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import db from '../queries';
+import routes from "./routes";
 
 const app = express();
 
 // Middleware
 app.use(cors());
+app.use(express.json()); // Sent via JSON
+app.use(express.urlencoded({ extended: true })); // Sent via HTML Form
 
+// Routes
+app.use('/companies', routes.company);
+
+// Start server
 app.listen(process.env.PORT, () =>
     console.log(`Example app listening on port ${process.env.PORT}.`)
 );
 
-// Routes
-
-app.get('/', (request, response) => {
-    response.json({ info: 'Node.js, Express, and Postgres API' })
-});
-
-app.get('/companies', db.getCompanies);
-app.get('/companies/:id', db.getCompanyById);
