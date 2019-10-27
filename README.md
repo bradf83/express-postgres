@@ -4,6 +4,7 @@ An API server using Express + PostGreSQL
 
 ## TODO
 
+* Add docker file for own postgres database.  Create models/migrations, look into sequelize-cli
 * Implement full crud for companies
 * Error handling
 * Model
