@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import routes from "./routes";
-import models, {sequelize} from "./models";
+import db from '../models';
 
 const app = express();
 
@@ -14,21 +14,19 @@ app.use(express.urlencoded({ extended: true })); // Sent via HTML Form
 // Custom Middleware (TODO: Should this be done like this?)
 app.use((req, res, next) => {
     req.context = {
-        models,
+        db,
     };
     next();
 });
-
 
 // Routes
 app.use('/companies', routes.company);
 app.use('/owners', routes.owner);
 
-// Sequelize and then start server
-sequelize.sync().then(async () => {
-    app.listen(process.env.PORT, () =>
-        console.log(`Example app listening on port ${process.env.PORT}.`)
-    );
-});
+// TODO: Consider checking the db to ensure we connect before starting the server.
+
+app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}.`)
+);
 
 
