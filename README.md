@@ -4,9 +4,9 @@ An API server using Express + PostGreSQL
 
 ## TODO
 
-* Add docker file for own postgres database.  Create models/migrations, look into sequelize-cli
+* Create models/migrations, look into sequelize-cli, run migrations on startup
 * Implement full crud for companies
-* Error handling
+* Error handling (Validation.JS)
 * Model
 * Best Practices
 * Security
@@ -17,3 +17,11 @@ An API server using Express + PostGreSQL
 * ORMs (Sequelize, TypeORM, Objection.js)
 * REST vs JSONAPI vs GraphQL
 * Security
+
+## Notes
+
+Migrations don't seem to be something that automatically run on startup
+
+- Look into umzug for running migrations, other approaches?
+  - Run on startup
+  - Check sum
