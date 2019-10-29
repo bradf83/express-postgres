@@ -4,7 +4,8 @@ An API server using Express + PostGreSQL
 
 ## TODO
 
-* Create models/migrations, look into sequelize-cli, run migrations on startup
+* Add seeders to populate some companies and owners.
+* Check db connection on startup
 * Implement full crud for companies
 * Error handling (Validation.JS)
 * Model
