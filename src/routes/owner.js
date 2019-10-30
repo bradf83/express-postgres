@@ -14,20 +14,21 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    // TODO
-    // Create an owner from the request body, return created.
-    // What if there is an error?
-    // What if validations fail?
-    const created = await req.context.db.Owner.create(req.body);
-    return res.status(201).json();
+    req.context.db.Owner.create(req.body).then(() => {
+        // Return created object?  Message?
+        res.status(201).json();
+    }, () => {
+        // Validation errors?
+        res.status(400).json({error: {message: 'An error occurred.'}})
+    });
 });
 
 router.delete('/:id', async (req, res) => {
-    // TODO
-    // Delete with a where clause
-    // This is async so the server will respond before finishing?
-    req.context.db.Owner.destroy({where: {id: req.params.id}});
-    return res.status(204).json();
+    req.context.db.Owner.destroy({where: {id: req.params.id}}).then(() => {
+        res.status(204).json();
+    }, () => {
+        res.status(400).json({error: {message: 'An error occurred while deleting.'}})
+    });
 });
 
 export default router;

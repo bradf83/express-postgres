@@ -12,6 +12,7 @@ An API server using Express + PostGreSQL
 * Best Practices
 * Security
 * Testing
+* Look into (compression, helmet (headers), express-validator)
 
 ## Additional Reading
 
