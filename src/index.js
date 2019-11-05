@@ -24,9 +24,19 @@ app.use('/companies', routes.company);
 app.use('/owners', routes.owner);
 
 // TODO: Consider checking the db to ensure we connect before starting the server.
+db.sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Database connection has been established successfully.');
+        app.listen(process.env.PORT, () =>
+            console.log(`Example app listening on port ${process.env.PORT}.`)
+        );
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 
-app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}.`)
-);
+
+
 
 

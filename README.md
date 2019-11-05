@@ -5,7 +5,7 @@ An API server using Express + PostGreSQL
 ## TODO
 
 * Add seeders to populate some companies and owners.
-* Check db connection on startup
+* Add a scope or two, try combining scopes.
 * Implement full crud for companies
 * Error handling (Validation.JS)
 * Model
