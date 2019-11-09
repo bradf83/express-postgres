@@ -3,7 +3,13 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const companies = await req.context.db.Company.findAll({include: [{model: req.context.db.Owner}]});
+    let companies = [];
+    // Very simple implementation of filter for now. Could be multiple, this only works for single.
+    if(req.query.filter){
+        companies = await req.context.db.Company.scope(req.query.filter).findAll({include: [{model: req.context.db.Owner}]});
+    } else {
+        companies = await req.context.db.Company.findAll({include: [{model: req.context.db.Owner}]});
+    }
     return res.status(200).json(companies);
 });
 
