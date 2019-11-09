@@ -23,7 +23,6 @@ app.use((req, res, next) => {
 app.use('/companies', routes.company);
 app.use('/owners', routes.owner);
 
-// TODO: Consider checking the db to ensure we connect before starting the server.
 db.sequelize
     .authenticate()
     .then(() => {
