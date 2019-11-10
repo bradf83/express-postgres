@@ -6,6 +6,7 @@ An API server using Express + PostGreSQL
 
 * Add a scope or two, try combining scopes.
 * Implement full crud for companies
+* Router catch all?  For example getting a path that does not exist.
 * Error handling (Validation.JS)
 * Model
 * Best Practices
