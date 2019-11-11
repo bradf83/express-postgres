@@ -12,13 +12,19 @@ An API server using Express + PostGreSQL
 * Best Practices
 * Security
 * Testing
-* Look into (compression, helmet (headers), express-validator)
+* Look into (compression, express-validator)
+* CSRF?
 
 ## Additional Reading
 
 * ORMs (Sequelize, TypeORM, Objection.js)
 * REST vs JSONAPI vs GraphQL
 * Security
+
+## Using
+
+* cors for CORS middleware
+* helmet for additional security middleware
 
 ## Notes
 
